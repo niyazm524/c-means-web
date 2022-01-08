@@ -1,0 +1,23 @@
+{
+  "name": "c-means-web",
+  "version": "1.0.0",
+  "description": "Creates a demonstration of the Fuzzy C-means algorithm using a small dataset(upto 3dimensional data). Also can be utilised for image segmentation (choose Chromatic in Distance Function).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ws",
+    "build": "parcel index.html",
+    "watch": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "3.5.17",
+    "jquery": "3.2.1",
+    "materialize-css": "^1.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.1.1"
+  }
+}

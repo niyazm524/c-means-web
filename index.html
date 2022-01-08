@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Fuzzy C-Means Кластеризация</title>
+	<style type="text/css">
+		/* Format X and Y Axis */
+
+		.axis path,
+		.axis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+
+		.axis text {
+			font-family: 'Roboto', sans-serif;
+			font-size: 11px;
+		}
+	</style>
+</head>
+
+<body style="background-color:#fcfcfc">
+	<div class="container">
+		<h2>Fuzzy C-Means кластеризация</h2>
+		<div class="row">
+			<div class="col m12 l6">
+				<div id="plot"></div>
+				<p id="lblStatus"></p>
+				<p id="objStat" style="display:block;">
+					<span id="Jval"> - </span>
+				</p>
+			</div>
+			<div class="col m12 l6">
+				<h5>Параметры:</h5>
+				<form>
+					<div class="row">
+						<div class="input-field col s6">
+							<input disabled id="noofc" type="text" class="validate" value=3>
+							<label for="noofc"># кластеров</label>
+						</div>
+						<div class="input-field col s6">
+							<input value=400 id="noofpoints" type="number" class="validate">
+							<label for="noofpoints">Количество точек</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input value=2 id="mValue" type="number" step="0.01" class="validate">
+							<label for="mValue">Fuzziness control parameter(m)</label>
+						</div>
+						<div class="input-field col s6">
+							<input value=0.5 id="threshold" type="number" step="0.001" class="validate">
+							<label for="threshold">Пороговое значение</label>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom:0; display: none;">
+						<div class="input-field col s6">
+							<select id="distFuncSel">
+								<option value="1" selected>Euclidean</option>
+								<option value="2">Phasor</option>
+								<option value="3">City Block</option>
+								<option value="4">Chromatic</option>
+							</select>
+							<label>Distance Function</label>
+						</div>
+						<div class="input-field col s6">
+							<label for="animspeed" style="margin-top: -20px;">Animation Speed</label>
+							<p class="range-field">
+								<input type="range" id="animspeed" min="0" max="100" value="90" />
+							</p>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom:0;margin-top:0; display: none;">
+						<div class="file-field input-field col s4 m3 l4">
+							<div class="btn csbutt">
+								<span>Image</span>
+								<input id="fileUP" type="file" accept="image/*">
+							</div>
+							<div class="file-path-wrapper" style="display:none">
+								<input class="file-path validate" type="text" placeholder="Upload one or more files">
+							</div>
+
+						</div>
+						<div class=" input-field col s8 m9 l8" style="display: none;">
+							<img style="max-height:45px;max-width:45px;" id="resultImage" />
+						</div>
+					</div>
+					<div class="row" style="margin-bottom:0;margin-top:0;">
+						<div class="input-field col s12">
+							<a id="setparams" style="padding: 0 1rem" class="csbutt waves-effect waves-light btn">
+								<i class="material-icons right">check</i>Обновить параметры</a>
+						</div>
+					</div>
+					<div class="row" style="margin-bottom:0;margin-top:0;">
+						<div class="input-field col s6">
+							<a id="iterate" style="padding: 0 1rem" class="csbutt waves-effect waves-light btn">
+								<i class="material-icons right">loop</i>Итерация</a>
+						</div>
+					</div>
+					<div class="row" style="margin-left: 0px; color: #919191">
+						<span>По кнопке можно скроллить (для более быстрых итераций)</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+  <!-- -->
+	<!-- <script src="js/fileup.js"></script> -->
+	<script type="module" src="src/main.js"></script>
+	
+</body>
+
+</html>
