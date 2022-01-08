@@ -2,11 +2,10 @@
   "name": "c-means-web",
   "version": "1.0.0",
   "description": "Creates a demonstration of the Fuzzy C-means algorithm using a small dataset(upto 3dimensional data). Also can be utilised for image segmentation (choose Chromatic in Distance Function).",
-  "main": "index.js",
   "scripts": {
-    "dev": "ws",
-    "build": "parcel index.html",
-    "watch": "rollup -c -w",
+    "dev": "parcel --public-url / index.html",
+    "build": "parcel build --public-url /c-means-web index.html",
+    "deploy": "npm run build && gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +17,12 @@
     "materialize-css": "^1.0.0"
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "parcel": "^2.1.1"
+  },
+  "alias": {
+    "d3": {
+      "global": "d3"
+    }
   }
 }

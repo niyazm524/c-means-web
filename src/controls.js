@@ -4,7 +4,6 @@ import * as lib from './start'
 var counterContext;
 
 $(function () {
-    console.log(lib)
     lib.initCmeans();
     lib.initGraph();
 
